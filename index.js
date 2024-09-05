@@ -1,5 +1,17 @@
-//mongoose database
+//import necessary modules
 const mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
+const itemsRouter = require("./routes/routes");
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+//middleware
+app.use(bodyParser.json());
+
+//use routes
+app.use("/api", itemsRouter);
 
 //map global promise - get rid of warning
 mongoose.Promise = global.Promise;
@@ -58,6 +70,11 @@ const listItems = () => {
     mongoose.connection.close();
   });
 };
+
+//start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
 
 // Export functions
 module.exports = {
