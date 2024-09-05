@@ -10,7 +10,7 @@ const {
   updateItem,
   removeItem,
   listItems,
-} = require("./index"); // Ensure this is correctly imported
+} = require("./controllers");
 
 const program = new Command();
 const prompt = inquirer.createPromptModule();
