@@ -13,6 +13,9 @@ mongoose
 //import model
 const Item = require("../model/auction");
 
+//the following commands are used to add, find, update, remove, and list items from the database
+//it's important to note that the database must be running in order to use these commands
+//to run the commands, use the following syntax:
 // Add item
 const addItem = (item) => {
   Item.create(item)
@@ -59,6 +62,24 @@ const listItems = () => {
   });
 };
 
+//the following commands are to be linked with the router.js file
+//GET /items?search=<searchTerm></searchTerm>
+const searchItems = async (req, res) => {
+  try {
+    const searchTerm = req.query.search;
+    const searchRegex = new RegExp(searchTerm, "i"); // Case-insensitive search
+    const items = await Item.find({ title: searchRegex });
+    res.json(items);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+//display hello world to the api
+const helloWorld = (req, res) => {
+  res.send("Hello World!");
+};
+
 //export modules
 module.exports = {
   addItem,
@@ -66,4 +87,6 @@ module.exports = {
   updateItem,
   removeItem,
   listItems,
+  searchItems,
+  helloWorld,
 };

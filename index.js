@@ -29,11 +29,3 @@ const Item = require("./model/auction");
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
-// Export functions
-module.exports = {
-  findItem,
-  updateItem,
-  removeItem,
-  listItems,
-};
