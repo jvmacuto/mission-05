@@ -1,0 +1,19 @@
+.compare-section {
+  padding: 2rem;
+}
+
+.compare-grid {
+  display: flex;
+  gap: 2rem;
+}
+
+.compare-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  max-width: 300px;
+}
+
+.compare-card img {
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,37 @@
+.header {
+  background-color: #ffffff; /* White background color */
+  padding: 1rem 2rem; /* Add padding for spacing */
+  display: flex;
+  justify-content: space-between; /* Ensure content is spaced out */
+  align-items: center;
+  color: #003366; /* Dark blue text color */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Adjust max-width to ensure content doesn't stretch too far */
+  padding: 0 1rem; /* Add padding inside the container for better spacing */
+}
+
+.logo {
+  margin-left: 235px; /* Move the logo to the left */
+}
+
+.nav {
+  margin-right: -380px; /* Move the navigation items to the right */
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Increase spacing between navigation items */
+}
+
+.nav a {
+  color: #003366;
+  text-decoration: none;
+  font-size: 1rem;
+}

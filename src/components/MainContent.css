@@ -1,0 +1,34 @@
+.auction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.auction-item {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auction-item img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.auction-item h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.auction-item p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.main-content {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  margin-top: 2rem; /* Adjust as needed to push it further down */
+}
