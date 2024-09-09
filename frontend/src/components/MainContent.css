@@ -1,0 +1,86 @@
+/* Container for the main content */
+.main-content {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  margin-top: 2rem;
+}
+
+/* Carousel container */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Carousel buttons */
+.carousel-btn {
+  background-color: #007bc1;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+}
+
+/* Grid layout for featured auctions */
+.auction-grid {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+/* Individual auction items */
+.auction-item {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 325px; /* Fixed width for each auction item */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.auction-item:hover {
+  transform: scale(1.05);
+}
+
+/* Auction item image */
+.auction-item img {
+  width: 100%; /* Ensures image scales properly */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Auction item text */
+.auction-details {
+  text-align: left; /* Aligning text to the left */
+}
+
+/* Auction title */
+.auction-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Auction price */
+.auction-item p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}

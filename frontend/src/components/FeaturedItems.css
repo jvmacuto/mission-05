@@ -1,0 +1,84 @@
+.featured-items {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto; /* Center the items by using auto margins */
+  width: 70.3%; /* Adjust width to bring items closer to the center */
+}
+
+.featured-item {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  text-align: left; /* Align text to the left */
+  border-radius: 5px;
+  width: 32.5%;
+  position: relative; /* Ensure the content stays on top of the background */
+}
+
+.property-featured {
+  background-image: url("../assets/property.png");
+  background-size: cover; /* Cover the entire container */
+  background-position: center;
+  background-repeat: no-repeat; /* Avoid repeating the background */
+}
+
+.promotion-featured {
+  background-image: url("../assets/paintcard.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.trending-featured {
+  background-image: url("../assets/makita.jpg");
+  background-size: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.featured-item h3,
+.featured-item p,
+.featured-item button {
+  position: relative; /* Ensure the content stays on top of the background */
+  z-index: 2; /* Ensure content appears above the background */
+  margin-left: 1rem; /* Add some left margin to the text for spacing */
+  color: #333; /* Default font color */
+}
+
+/* Change the color of the heading */
+.featured-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f09457; /* Dark blue font color for headings */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+/* Change the color of the paragraph text */
+.featured-item p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #f0f3f3; /* Grey color for paragraph text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+/* Change the color of the button */
+.featured-item button {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.212
+  ); /* White background with 70% opacity */
+  color: #ebeff3; /* Change text color to dark blue for contrast */
+  /* border: 2px solid #f09457; Border color to match the design */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2; /* Ensure button appears above the background */
+  margin-left: 1rem; /* Align the button with the text */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.featured-item button:hover {
+  background-color: #ec7a2f (184, 120, 57, 0.822); /* Increase opacity on hover to make it stand out */
+}

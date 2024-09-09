@@ -1,0 +1,42 @@
+.category-tabs {
+  display: flex;
+  justify-content: center; /* Center the tabs */
+  max-width: 70%; /* Limit the width to avoid full screen */
+  margin: 0 auto; /* Center the container */
+  gap: 1rem;
+  padding: 0.9rem 0;
+  background-color: #f0f0f0;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 15px;
+  background-color: #ccc;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab.marketplace {
+  background-color: #e74c3c;
+}
+
+.tab.jobs {
+  background-color: #e67e22;
+}
+
+.tab.motors {
+  background-color: #7f8c8d;
+}
+
+.tab.property {
+  background-color: #27ae60;
+}
+
+.tab.services {
+  background-color: #2c3e50;
+}

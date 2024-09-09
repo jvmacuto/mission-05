@@ -1,0 +1,21 @@
+.product-listing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  max-width: 300px;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-actions button {
+  margin: 0.5rem 0;
+}

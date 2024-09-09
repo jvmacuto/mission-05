@@ -1,0 +1,22 @@
+.product-page {
+  padding: 2rem;
+}
+
+.product-page img {
+  max-width: 100%;
+  height: auto;
+}
+
+.expandable-section {
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.place-bid-button {
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #003366;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
