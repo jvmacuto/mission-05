@@ -20,22 +20,24 @@ const addItemQuestions = [
   {
     type: "input",
     name: "title",
-    message: "Enter item title",
+    message: "Enter item title: ",
   },
   {
     type: "input",
     name: "description",
-    message: "Enter item description",
+    message: "Enter item description: ",
   },
   {
     type: "input",
     name: "starting_price",
-    message: "Enter starting price",
+    message: "Enter starting price: ",
+    validate: (value) => !isNaN(value) || "Please enter a valid number",
   },
   {
     type: "input",
     name: "reserve_price",
-    message: "Enter reserve price",
+    message: "Enter reserve price: ",
+    validate: (value) => !isNaN(value) || "Please enter a valid number",
   },
 ];
 

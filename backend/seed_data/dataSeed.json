@@ -1,0 +1,18 @@
+[
+  {
+    "title": "ps5",
+    "description": "ps5",
+    "starting_price": "799",
+    "reserve_price": "899",
+    "_id": "66dec2fb610e10bb79b0d7a8",
+    "__v": 0
+  },
+  {
+    "title": "test",
+    "description": "test",
+    "starting_price": 123,
+    "reserve_price": 123,
+    "_id": "66dec450470a0285c2235246",
+    "__v": 0
+  }
+]

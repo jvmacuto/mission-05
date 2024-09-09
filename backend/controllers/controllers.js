@@ -1,4 +1,5 @@
 //import mongoose
+const fs = require("fs");
 const mongoose = require("mongoose");
 
 //map global promise - get rid of warning
@@ -21,13 +22,28 @@ const addItem = (item) => {
   Item.create(item)
     .then((item) => {
       console.info("Item has been added", item);
+
+      //Read existing data from the json file
+      let data = [];
+      const filePath = "./seed_data/dataSeed.json";
+      if (fs.existsSync(filePath)) {
+        const fileData = fs.readFileSync(filePath);
+        data = JSON.parse(fileData);
+      }
+
+      //append the new item to the data array
+      data.push(item);
+
+      //write the updated data to the json file
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+      console.info(`Data has been written to ${filePath}`);
       mongoose.connection.close();
     })
     .catch((err) => console.log(err));
 };
 
 //find item
-const findItem = (title) => {
+/*const findItem = (title) => {
   //make case insensitive
   const search = new RegExp(title, "i");
   Item.find({ $or: [{ title: search }] }).then((item) => {
@@ -35,31 +51,117 @@ const findItem = (title) => {
     console.info(`${item.length} matches`);
     mongoose.connection.close();
   });
+};*/
+
+const findItem = (title) => {
+  //link to file path
+  const filePath = "./seed_data/dataSeed.json";
+  if (fs.existsSync(filePath)) {
+    try {
+      const fileData = fs.readFileSync(filePath, "utf8");
+      const data = JSON.parse(fileData);
+      //make case insensitive
+      const search = new RegExp(title, "i");
+      const result = data.filter((item) => search.test(item.title));
+      console.info(result);
+      console.info(`${result.length} matches`);
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    console.log("File does not exist");
+  }
 };
 
-//update item
-const updateItem = (_id, item) => {
-  Item.findByIdAndUpdate({ _id }, item).then((item) => {
-    console.info("Item has been updated");
-    mongoose.connection.close();
-  });
+// Update item in database and JSON file
+const updateItem = (_id, updatedItem) => {
+  Item.findByIdAndUpdate(_id, updatedItem, { new: true })
+    .then((item) => {
+      console.info("Item has been updated in the database", item);
+
+      // Read existing data from the JSON file
+      const filePath = "./seed_data/dataSeed.json";
+      if (fs.existsSync(filePath)) {
+        try {
+          const fileData = fs.readFileSync(filePath, "utf8");
+          let data = JSON.parse(fileData);
+
+          // Find the index of the item to update
+          const index = data.findIndex((item) => item._id === _id);
+          if (index !== -1) {
+            // Update the item in the data array
+            data[index] = { ...data[index], ...updatedItem };
+
+            // Write the updated data back to the JSON file
+            fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+            console.info(`Item has been updated in ${filePath}`);
+          } else {
+            console.error("Item not found in JSON file");
+          }
+        } catch (err) {
+          console.error("Error reading or parsing JSON data:", err);
+        }
+      } else {
+        console.error("JSON file does not exist");
+      }
+
+      mongoose.connection.close();
+    })
+    .catch((err) => {
+      console.error("Error updating item:", err);
+      mongoose.connection.close();
+    });
 };
 
-//remove item
+// Remove item from database and JSON file
 const removeItem = (_id) => {
-  Item.deleteOne({ _id }).then((item) => {
-    console.info("Item has been removed");
-    mongoose.connection.close();
-  });
+  Item.deleteOne({ _id })
+    .then((item) => {
+      console.info("Item has been removed from the database");
+
+      // Read existing data from the JSON file
+      const filePath = "./seed_data/dataSeed.json";
+      if (fs.existsSync(filePath)) {
+        try {
+          const fileData = fs.readFileSync(filePath, "utf8");
+          let data = JSON.parse(fileData);
+
+          // Filter out the item to remove
+          data = data.filter((item) => item._id !== _id);
+
+          // Write the updated data back to the JSON file
+          fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+          console.info(`Item has been removed from ${filePath}`);
+        } catch (err) {
+          console.error("Error reading or parsing JSON data:", err);
+        }
+      } else {
+        console.error("JSON file does not exist");
+      }
+
+      mongoose.connection.close();
+    })
+    .catch((err) => {
+      console.error("Error removing item:", err);
+      mongoose.connection.close();
+    });
 };
 
 //list all items
 const listItems = () => {
-  Item.find().then((items) => {
-    console.info(items);
-    console.info(`${items.length} items`);
-    mongoose.connection.close();
-  });
+  const filePath = "./seed_data/dataSeed.json";
+  if (fs.existsSync(filePath)) {
+    try {
+      const fileData = fs.readFileSync(filePath, "utf8");
+      const data = JSON.parse(fileData);
+      console.info(data);
+      console.info(`${data.length} items`);
+    } catch (err) {
+      console.error("Error reading or parsing JSON data:", err);
+    }
+  } else {
+    console.error("JSON file does not exist");
+  }
 };
 
 //the following commands are to be linked with the router.js file
