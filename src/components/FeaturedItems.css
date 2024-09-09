@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   margin: 2rem auto; /* Center the items by using auto margins */
-  width: 73%; /* Adjust width to bring items closer to the center */
+  width: 70.3%; /* Adjust width to bring items closer to the center */
 }
 
 .featured-item {
@@ -10,7 +10,7 @@
   padding: 1rem;
   text-align: left; /* Align text to the left */
   border-radius: 5px;
-  width: 30%;
+  width: 32.5%;
   position: relative; /* Ensure the content stays on top of the background */
 }
 
@@ -80,5 +80,5 @@
 }
 
 .featured-item button:hover {
-  background-color: #f09457 (184, 120, 57, 0.822); /* Increase opacity on hover to make it stand out */
+  background-color: #ec7a2f (184, 120, 57, 0.822); /* Increase opacity on hover to make it stand out */
 }

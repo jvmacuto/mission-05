@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar"; // Import the SearchBar component
 import CategoryTabs from "./components/CategoryTabs";
 import Advertisement from "./components/Advertisement"; // Import the Advertisement component
+import TopPicks from "./components/TopPicks";
 import FeaturedItems from "./components/FeaturedItems"; // Import the FeaturedItems component
 import MainContent from "./components/MainContent";
 import TrendingCategories from "./components/TrendingCategories"; // Import the TrendingCategories component
@@ -46,6 +47,7 @@ function App() {
       <CategoryTabs />{" "}
       {/* Tabs for different categories like Marketplace, Jobs, etc. */}
       <Advertisement /> {/* Advertisement section */}
+      <TopPicks />
       <FeaturedItems /> {/* Featured items section */}
       <MainContent /> {/* Main content with featured auctions */}
       <TrendingCategories categories={trendingCategories} />{" "}
