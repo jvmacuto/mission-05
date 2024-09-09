@@ -6,10 +6,12 @@ const Item = require("../model/auction");
 const controller = require("../controllers/controllers");
 
 // GET /items?search=<searchTerm>
-router.post("/items", controller.searchItems);
+router.get("/items", controller.searchItems);
+
+//print all items
 
 //get hello world from controller.js
-router.post("/hello", controller.helloWorld);
+router.get("/hello", controller.helloWorld);
 
 //export router
 module.exports = router;
