@@ -1,4 +1,3 @@
-// CoolAuctions.jsx
 import React, { useState } from "react";
 import "./MainContent.css"; // Reusing styles from MainContent
 
@@ -9,6 +8,7 @@ const coolAuctions = [
     image: "path_to_image_1",
     price: "$30,000",
     closingDate: "Listed: Mon, 9 Sep",
+    location: "Auckland, NZ",
   },
   {
     id: 2,
@@ -16,6 +16,7 @@ const coolAuctions = [
     image: "path_to_image_2",
     price: "Price by negotiation",
     closingDate: "Auction on 26 Sep, 12:00pm",
+    location: "Wellington, NZ",
   },
   {
     id: 3,
@@ -23,6 +24,7 @@ const coolAuctions = [
     image: "path_to_image_3",
     price: "Auction on 26 Sep, 12:00pm",
     closingDate: "",
+    location: "Christchurch, NZ",
   },
   {
     id: 4,
@@ -30,6 +32,7 @@ const coolAuctions = [
     image: "path_to_image_4",
     price: "$50,000",
     closingDate: "Closes: Thu, 10 Sep",
+    location: "Hamilton, NZ",
   },
   {
     id: 5,
@@ -37,6 +40,7 @@ const coolAuctions = [
     image: "path_to_image_5",
     price: "$25,000",
     closingDate: "Listed: Fri, 11 Sep",
+    location: "Dunedin, NZ",
   },
   {
     id: 6,
@@ -44,6 +48,7 @@ const coolAuctions = [
     image: "path_to_image_6",
     price: "$40,000",
     closingDate: "Closes: Sat, 12 Sep",
+    location: "Tauranga, NZ",
   },
   {
     id: 7,
@@ -51,6 +56,7 @@ const coolAuctions = [
     image: "path_to_image_7",
     price: "$12,000",
     closingDate: "Closes: Sun, 13 Sep",
+    location: "Napier, NZ",
   },
   {
     id: 8,
@@ -58,6 +64,7 @@ const coolAuctions = [
     image: "path_to_image_8",
     price: "$200,000",
     closingDate: "Closes: Mon, 14 Sep",
+    location: "Palmerston North, NZ",
   },
   {
     id: 9,
@@ -65,6 +72,7 @@ const coolAuctions = [
     image: "path_to_image_9",
     price: "$6,000",
     closingDate: "Listed: Tue, 15 Sep",
+    location: "Rotorua, NZ",
   },
   {
     id: 10,
@@ -72,6 +80,7 @@ const coolAuctions = [
     image: "path_to_image_10",
     price: "$100,000",
     closingDate: "Closes: Wed, 16 Sep",
+    location: "New Plymouth, NZ",
   },
 ];
 
@@ -81,13 +90,13 @@ function CoolAuctions() {
 
   const handleNext = () => {
     if (currentIndex < coolAuctions.length - itemsPerPage) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(currentIndex + itemsPerPage);
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - itemsPerPage);
     }
   };
 
@@ -108,6 +117,7 @@ function CoolAuctions() {
                   <h3>{auction.title}</h3>
                   <p>{auction.price}</p>
                   <p>{auction.closingDate}</p>
+                  <p>{auction.location}</p> {/* Added location display */}
                 </div>
               </div>
             ))}

@@ -1,4 +1,3 @@
-// OneDollarReserve.jsx
 import React, { useState } from "react";
 import "./MainContent.css"; // Reusing styles from MainContent
 
@@ -9,6 +8,7 @@ const oneDollarAuctions = [
     image: "path_to_image_1",
     price: "$1.00",
     closingDate: "Closes: Tue, 17 Sep",
+    location: "Auckland, NZ",
   },
   {
     id: 2,
@@ -16,6 +16,7 @@ const oneDollarAuctions = [
     image: "path_to_image_2",
     price: "$205.00",
     closingDate: "Closes: Tue, 17 Sep",
+    location: "Wellington, NZ",
   },
   {
     id: 3,
@@ -23,6 +24,7 @@ const oneDollarAuctions = [
     image: "path_to_image_3",
     price: "$95.00",
     closingDate: "Closes: Mon, 16 Sep",
+    location: "Christchurch, NZ",
   },
   {
     id: 4,
@@ -30,6 +32,7 @@ const oneDollarAuctions = [
     image: "path_to_image_4",
     price: "$150.00",
     closingDate: "Closes: Wed, 18 Sep",
+    location: "Hamilton, NZ",
   },
   {
     id: 5,
@@ -37,6 +40,7 @@ const oneDollarAuctions = [
     image: "path_to_image_5",
     price: "$50.00",
     closingDate: "Closes: Thu, 19 Sep",
+    location: "Dunedin, NZ",
   },
   {
     id: 6,
@@ -44,6 +48,7 @@ const oneDollarAuctions = [
     image: "path_to_image_6",
     price: "$70.00",
     closingDate: "Closes: Fri, 20 Sep",
+    location: "Tauranga, NZ",
   },
   {
     id: 7,
@@ -51,6 +56,7 @@ const oneDollarAuctions = [
     image: "path_to_image_7",
     price: "$30.00",
     closingDate: "Closes: Sat, 21 Sep",
+    location: "Napier, NZ",
   },
   {
     id: 8,
@@ -58,6 +64,7 @@ const oneDollarAuctions = [
     image: "path_to_image_8",
     price: "$90.00",
     closingDate: "Closes: Sun, 22 Sep",
+    location: "Palmerston North, NZ",
   },
   {
     id: 9,
@@ -65,6 +72,7 @@ const oneDollarAuctions = [
     image: "path_to_image_9",
     price: "$120.00",
     closingDate: "Closes: Mon, 23 Sep",
+    location: "Rotorua, NZ",
   },
   {
     id: 10,
@@ -72,6 +80,7 @@ const oneDollarAuctions = [
     image: "path_to_image_10",
     price: "$65.00",
     closingDate: "Closes: Tue, 24 Sep",
+    location: "New Plymouth, NZ",
   },
 ];
 
@@ -81,13 +90,13 @@ function OneDollarReserve() {
 
   const handleNext = () => {
     if (currentIndex < oneDollarAuctions.length - itemsPerPage) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(currentIndex + itemsPerPage);
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - itemsPerPage);
     }
   };
 
@@ -99,16 +108,19 @@ function OneDollarReserve() {
           &#8249;
         </button>
         <div className="auction-grid">
-          {oneDollarAuctions.slice(currentIndex, currentIndex + itemsPerPage).map((auction) => (
-            <div className="auction-item" key={auction.id}>
-              <img src={auction.image} alt={auction.title} />
-              <div className="auction-details">
-                <h3>{auction.title}</h3>
-                <p>{auction.price}</p>
-                <p>{auction.closingDate}</p>
+          {oneDollarAuctions
+            .slice(currentIndex, currentIndex + itemsPerPage)
+            .map((auction) => (
+              <div className="auction-item" key={auction.id}>
+                <img src={auction.image} alt={auction.title} />
+                <div className="auction-details">
+                  <h3>{auction.title}</h3>
+                  <p>{auction.price}</p>
+                  <p>{auction.closingDate}</p>
+                  <p>{auction.location}</p> {/* Added location display */}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
         <button className="carousel-btn next" onClick={handleNext}>
           &#8250;
