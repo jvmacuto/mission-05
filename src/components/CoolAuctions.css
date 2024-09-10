@@ -1,12 +1,12 @@
-/* Container for the main content */
-.main-content {
+/* Cool Auctions Section */
+.cool-auctions {
   padding: 2rem;
-  /* background-color: #f9f9f9; */
+  background-color: #f9f9f9;
   margin-top: 2rem;
 }
 
-/* Carousel container */
-.carousel {
+/* Carousel for Cool Auctions */
+.cool-auctions-carousel {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,15 +35,15 @@
   right: 0;
 }
 
-/* Grid layout for featured auctions */
-.auction-grid {
+/* Grid layout for Cool Auctions items */
+.cool-auctions-grid {
   display: flex;
   gap: 1rem;
   overflow: hidden;
 }
 
-/* Individual auction items */
-.auction-item {
+/* Individual auction items for Cool Auctions */
+.cool-auctions-item {
   background-color: #fff;
   border: 1px solid #eaeaea;
   padding: 1rem;
@@ -54,32 +54,30 @@
   transition: transform 0.3s ease;
 }
 
-.auction-item:hover {
+.cool-auctions-item:hover {
   transform: scale(1.05);
 }
 
 /* Auction item image */
-.auction-item img {
-  width: 100%; /* Ensures image scales properly */
+.cool-auctions-item img {
+  width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
 
 /* Auction item text */
-.auction-details {
-  text-align: left; /* Aligning text to the left */
+.cool-auctions-details {
+  text-align: left;
 }
 
-/* Auction title */
-.auction-item h3 {
+.cool-auctions-item h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: #333;
 }
 
-/* Auction price */
-.auction-item p {
+.cool-auctions-item p {
   font-size: 1rem;
   color: #666;
   margin-bottom: 0.25rem;

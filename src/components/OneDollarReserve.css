@@ -1,12 +1,12 @@
-/* Container for the main content */
-.main-content {
+/* $1 Reserve Section */
+.one-dollar-reserve {
   padding: 2rem;
-  /* background-color: #f9f9f9; */
+  background-color: #f9f9f9;
   margin-top: 2rem;
 }
 
-/* Carousel container */
-.carousel {
+/* Carousel for $1 Reserve */
+.one-dollar-carousel {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,15 +35,15 @@
   right: 0;
 }
 
-/* Grid layout for featured auctions */
-.auction-grid {
+/* Grid layout for $1 Reserve items */
+.one-dollar-grid {
   display: flex;
   gap: 1rem;
   overflow: hidden;
 }
 
-/* Individual auction items */
-.auction-item {
+/* Individual auction items for $1 Reserve */
+.one-dollar-item {
   background-color: #fff;
   border: 1px solid #eaeaea;
   padding: 1rem;
@@ -54,32 +54,30 @@
   transition: transform 0.3s ease;
 }
 
-.auction-item:hover {
+.one-dollar-item:hover {
   transform: scale(1.05);
 }
 
 /* Auction item image */
-.auction-item img {
-  width: 100%; /* Ensures image scales properly */
+.one-dollar-item img {
+  width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
 
 /* Auction item text */
-.auction-details {
-  text-align: left; /* Aligning text to the left */
+.one-dollar-details {
+  text-align: left;
 }
 
-/* Auction title */
-.auction-item h3 {
+.one-dollar-item h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: #333;
 }
 
-/* Auction price */
-.auction-item p {
+.one-dollar-item p {
   font-size: 1rem;
   color: #666;
   margin-bottom: 0.25rem;
