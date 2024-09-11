@@ -11,10 +11,8 @@ import FeaturedItems from "./components/FeaturedItems"; // Import the FeaturedIt
 import MainContent from "./components/MainContent";
 import TrendingCategories from "./components/TrendingCategories"; // Import the TrendingCategories component
 import Footer from "./components/Footer";
-import ProductListing from "./components/ProductListing";
-import ProductPage from "./components/ProductPage";
-import BidConfirmation from "./components/BidConfirmation";
-import Compare from "./components/Compare";
+import OneDollarReserve from "./components/OneDollarReserve"; // New Component
+import CoolAuctions from "./components/CoolAuctions";
 
 function App() {
   const trendingCategories = [
@@ -52,29 +50,8 @@ function App() {
       <MainContent /> {/* Main content with featured auctions */}
       <TrendingCategories categories={trendingCategories} />{" "}
       {/* Trending Categories section */}
-      <ProductListing /> {/* Example Product Listing Page */}
-      <ProductPage /> {/* Example Product Page */}
-      <BidConfirmation
-        product={{
-          title: "Sample Product",
-          imageUrl: "/path/to/image",
-          currentBid: 100,
-        }}
-      />{" "}
-      {/* Example Bid Confirmation */}
-      <Compare
-        selectedItems={[
-          {
-            id: 1,
-            title: "Product 1",
-            imageUrl: "/path/to/image",
-            price: "$100",
-            condition: "New",
-            sellerRating: "4.5 stars",
-          },
-        ]}
-      />{" "}
-      {/* Example Compare Page */}
+      <OneDollarReserve /> {/* $1 Reserve section */}
+      <CoolAuctions /> {/* Cool Auctions section */}
       <Footer /> {/* Footer with site links and information */}
     </div>
   );

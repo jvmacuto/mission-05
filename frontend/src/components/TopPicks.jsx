@@ -1,123 +1,147 @@
 import React, { useState } from "react";
 import "./TopPicks.css";
 
+// Importing the images from your assets folder
+import shelvingImage from "../assets/200x200x50cm Storage Shelving.jpg";
+import palletrack from "../assets/palletrack.jpg";
+import heavyduty from "../assets/HeavyDutyShelves.jpg";
+import customwood from "../assets/CustomWoodenShelves.jpg";
+
 const topPicksItems = [
   {
     id: 1,
-    title: "Pallet Racking / Warehouse Shelving",
-    image: "path_to_image",
-    price: "$349.00",
-    closingDate: "Closes: Wed, 11 Sep",
-    location: "Auckland",
+    title: "200x200x50cm Storage Shelving",
+    price: "$284.91",
+    closingDate: "Tue, 10 Sep",
+    location: "Auckland, NZ",
+    image: shelvingImage,
   },
   {
     id: 2,
-    title: "Shelving Units - Used",
-    image: "path_to_image",
-    price: "$275.00",
-    closingDate: "Closes: Mon, 9 Sep",
-    location: "Canterbury",
+    title: "Pallet Racking",
+    price: "$595.00",
+    closingDate: "Wed, 11 Sep",
+    location: "Wellington, NZ",
+    image: palletrack,
   },
   {
     id: 3,
-    title: "200x200x50cm Storage Shelving",
-    image: "path_to_image",
-    price: "$284.91",
-    closingDate: "Closes: Tue, 10 Sep",
-    location: "Canterbury",
+    title: "Heavy-Duty Shelves",
+    price: "$155.00",
+    closingDate: "Sat, 7 Sep",
+    location: "Christchurch, NZ",
+    image: heavyduty,
   },
   {
     id: 4,
-    title: "Pallet Racking",
-    image: "path_to_image",
-    price: "$595.00",
-    closingDate: "Closes: Wed, 11 Sep",
-    location: "Auckland",
+    title: "Custom Wooden Shelves",
+    price: "$99.00",
+    closingDate: "Thu, 8 Sep",
+    location: "Hamilton, NZ",
+    image: customwood,
   },
   {
     id: 5,
-    title: "Heavy-Duty Shelves",
+    title: "Industrial Workbench",
+    price: "$499.99",
+    closingDate: "Thu, 15 Sep",
+    location: "Dunedin, NZ",
     image: "path_to_image",
-    price: "$155.00",
-    closingDate: "Closes: Sat, 7 Sep",
-    location: "Hamilton",
   },
   {
     id: 6,
-    title: "Custom Wooden Shelves",
+    title: "Heavy-Duty Tool Cabinet",
+    price: "$399.99",
+    closingDate: "Mon, 19 Sep",
+    location: "Tauranga, NZ",
     image: "path_to_image",
-    price: "$99.00",
-    closingDate: "Closes: Thu, 8 Sep",
-    location: "Wellington",
   },
   {
     id: 7,
-    title: "Plastic Pallet Rack",
+    title: "Mobile Tool Cart",
+    price: "$699.99",
+    closingDate: "Fri, 20 Sep",
+    location: "Napier, NZ",
     image: "path_to_image",
-    price: "$320.00",
-    closingDate: "Closes: Tue, 10 Sep",
-    location: "Christchurch",
   },
   {
     id: 8,
-    title: "Steel Storage Shelving",
+    title: "Portable Storage Unit",
+    price: "$399.99",
+    closingDate: "Sun, 21 Sep",
+    location: "Palmerston North, NZ",
     image: "path_to_image",
-    price: "$400.00",
-    closingDate: "Closes: Sun, 15 Sep",
-    location: "Auckland",
   },
   {
     id: 9,
-    title: "DIY Shelving Kit",
+    title: "Warehouse Ladder",
+    price: "$250.00",
+    closingDate: "Mon, 22 Sep",
+    location: "Rotorua, NZ",
     image: "path_to_image",
-    price: "$120.00",
-    closingDate: "Closes: Fri, 14 Sep",
-    location: "Tauranga",
   },
   {
     id: 10,
-    title: "Pallet Shelf Unit",
+    title: "Shelving Rack System",
+    price: "$300.00",
+    closingDate: "Tue, 23 Sep",
+    location: "New Plymouth, NZ",
     image: "path_to_image",
-    price: "$499.00",
-    closingDate: "Closes: Sat, 17 Sep",
-    location: "Dunedin",
   },
 ];
 
 function TopPicks() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 4;
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 4) % topPicksItems.length);
+  const handleNext = () => {
+    if (currentIndex < topPicksItems.length - itemsPerPage) {
+      setCurrentIndex(currentIndex + itemsPerPage);
+    }
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? topPicksItems.length - 4 : prevIndex - 4
-    );
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - itemsPerPage);
+    }
   };
 
   return (
     <div className="top-picks-section">
       <h2>Top Picks for You</h2>
-      <div className="top-picks-carousel">
-        <button className="carousel-button" onClick={prevSlide}>
+      <div className="carousel">
+        <button
+          className="carousel-btn prev"
+          onClick={handlePrev}
+          disabled={currentIndex === 0}
+        >
           &#8249;
         </button>
-        <div className="top-picks-items">
-          {topPicksItems.slice(currentIndex, currentIndex + 4).map((item) => (
-            <div className="top-pick-item" key={item.id}>
-              <img src={item.image} alt={item.title} />
-              <div className="item-details">
-                <h3>{item.title}</h3>
-                <p>{item.location}</p>
-                <p>{item.price}</p>
-                <p>{item.closingDate}</p>
+        <div className="auction-grid">
+          {topPicksItems
+            .slice(currentIndex, currentIndex + itemsPerPage)
+            .map((item) => (
+              <div className="auction-item" key={item.id}>
+                <div className="auction-image-container">
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div className="auction-details">
+                  <h3>{item.title}</h3>
+                  <p>{item.closingDate}</p>
+                  <p>{item.location}</p>
+                  <div className="price-container">
+                    <span className="buy-now">Buy Now</span>
+                    <p className="price">{item.price}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
-        <button className="carousel-button" onClick={nextSlide}>
+        <button
+          className="carousel-btn next"
+          onClick={handleNext}
+          disabled={currentIndex >= topPicksItems.length - itemsPerPage}
+        >
           &#8250;
         </button>
       </div>
