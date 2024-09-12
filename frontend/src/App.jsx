@@ -45,9 +45,6 @@ function App() {
           <Footer />
         </Router>
       </>
-      {/* You can still use the other components below if MainPage doesn't handle them */}
-      <Header /> {/* Header with navigation */}
-      <Footer /> {/* Footer with site links and information */}
     </div>
   );
 }
