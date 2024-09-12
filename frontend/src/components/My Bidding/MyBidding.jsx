@@ -11,6 +11,19 @@ function MyBidding() {
     setBidDetails(savedBidDetails);
   }, []);
 
+  const handleRemoveBid = (item) => {
+    setBidDetails((prevDetails) => {
+      const updatedDetails = prevDetails.filter((i) => i.title !== item.title);
+      localStorage.setItem("bidDetails", JSON.stringify(updatedDetails)); // Save to local storage
+      return updatedDetails;
+    });
+
+    // Update the bids state in local storage
+    const savedBids = JSON.parse(localStorage.getItem("bids")) || {};
+    delete savedBids[item.title];
+    localStorage.setItem("bids", JSON.stringify(savedBids));
+  };
+
   return (
     <div className="my-bidding-container">
       <h1>My Bidding</h1>
@@ -22,6 +35,7 @@ function MyBidding() {
               <p>{item.description}</p>
               <p>Starting Price: ${item.starting_price}</p>
               <p>Reserve Price: ${item.reserve_price}</p>
+              <button onClick={() => handleRemoveBid(item)}>Remove Bid</button>
             </div>
           ))
         ) : (

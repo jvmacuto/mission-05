@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CompareItemsModal from "./CompareItemsModal";
+import BidAmountModal from "./BidAmountModal";
 import "./CompareItems.css";
 
 const CompareItems = ({ bidDetails, setBidDetails }) => {
@@ -7,6 +8,8 @@ const CompareItems = ({ bidDetails, setBidDetails }) => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [comparedItems, setComparedItems] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBidModalOpen, setIsBidModalOpen] = useState(false);
+  const [currentBidItem, setCurrentBidItem] = useState(null);
   const [error, setError] = useState(null);
   const [bids, setBids] = useState({}); // State to track placed bids
   const [alertShown, setAlertShown] = useState(false); // State to track alert status
@@ -65,8 +68,22 @@ const CompareItems = ({ bidDetails, setBidDetails }) => {
     setIsModalOpen(false);
   };
 
-  const handlePlaceBid = (item) => {
-    console.log("handlePlaceBid called for item:", item.title); // Debugging log
+  const openBidModal = (item) => {
+    setCurrentBidItem(item);
+    setIsBidModalOpen(true);
+  };
+
+  const closeBidModal = () => {
+    setIsBidModalOpen(false);
+    setCurrentBidItem(null);
+  };
+
+  const handlePlaceBid = (item, bidAmount) => {
+    if (!bidAmount || bidAmount < item.reserve_price) {
+      alert(`Bid amount must be at least ${item.reserve_price}`);
+      return;
+    }
+
     setIsButtonDisabled(true); // Disable button
     setBids((prevBids) => {
       const newBids = { ...prevBids };
@@ -81,30 +98,20 @@ const CompareItems = ({ bidDetails, setBidDetails }) => {
         });
         alert(`Bid canceled on ${item.title}`);
       } else {
-        newBids[item.title] = true; // Place bid
+        newBids[item.title] = bidAmount; // Place bid with amount
         setBidDetails((prevDetails) => {
-          const updatedDetails = [...prevDetails, item];
+          const updatedDetails = [...prevDetails, { ...item, bidAmount }];
           localStorage.setItem("bidDetails", JSON.stringify(updatedDetails)); // Save to local storage
           return updatedDetails;
         });
-        alert(`Bid placed on ${item.title}`);
+        alert(`Bid placed on ${item.title} with amount ${bidAmount}`);
       }
       localStorage.setItem("bids", JSON.stringify(newBids)); // Save to local storage
       setIsButtonDisabled(false); // Re-enable button after operation
       return newBids;
     });
+    closeBidModal();
   };
-
-  const debounce = (func, delay) => {
-    let debounceTimer;
-    return function (...args) {
-      const context = this;
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => func.apply(context, args), delay);
-    };
-  };
-
-  const debouncedHandlePlaceBid = debounce(handlePlaceBid, 300);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -132,7 +139,7 @@ const CompareItems = ({ bidDetails, setBidDetails }) => {
                 {selectedItems.includes(item) ? "Deselect" : "Select"}
               </button>
               <button
-                onClick={() => debouncedHandlePlaceBid(item)}
+                onClick={() => openBidModal(item)}
                 disabled={isButtonDisabled}
               >
                 {bids[item.title] ? "Cancel Bid" : "Place Bid"}
@@ -148,8 +155,16 @@ const CompareItems = ({ bidDetails, setBidDetails }) => {
         comparedItems={comparedItems || []} // Ensure comparedItems is an array
         bids={bids} // Pass the bids state to the modal
         bidDetails={bidDetails || []} // Ensure bidDetails is an array
-        handlePlaceBid={debouncedHandlePlaceBid} // Pass the debounced handlePlaceBid function to the modal
+        handlePlaceBid={handlePlaceBid} // Pass the handlePlaceBid function to the modal
       />
+      {currentBidItem && (
+        <BidAmountModal
+          isOpen={isBidModalOpen}
+          onRequestClose={closeBidModal}
+          item={currentBidItem}
+          handlePlaceBid={handlePlaceBid}
+        />
+      )}
     </>
   );
 };
