@@ -6,11 +6,9 @@ import TopPicks from "./TopPicks";
 import FeaturedItems from "./FeaturedItems"; // Import the FeaturedItems component
 import MainContent from "./MainContent";
 import TrendingCategories from "./TrendingCategories"; // Import the TrendingCategories component
+import OneDollarReserve from "./OneDollarReserve"; // New Component
+import CoolAuctions from "./CoolAuctions";
 import Footer from "./Footer";
-import ProductListing from "./ProductListing";
-import ProductPage from "./ProductPage";
-import BidConfirmation from "./BidConfirmation";
-import Compare from "./Compare";
 
 const MainPage = () => {
   const trendingCategories = [
@@ -36,7 +34,6 @@ const MainPage = () => {
   ];
   return (
     <>
-      <Header /> {/* Header with navigation */}
       <SearchBar />{" "}
       {/* Main Search bar with "KIA ORA! READY TO FIND YOUR NEW?" */}
       <CategoryTabs />{" "}
@@ -47,9 +44,8 @@ const MainPage = () => {
       <MainContent /> {/* Main content with featured auctions */}
       <TrendingCategories categories={trendingCategories} />{" "}
       {/* Trending Categories section */}
-      {/*<OneDollarReserve /> {/* $1 Reserve section */}
-      {/*<CoolAuctions /> {/* Cool Auctions section */}
-      <Footer /> {/* Footer with site links and information */}
+      <OneDollarReserve /> {/* $1 Reserve section */}
+      <CoolAuctions /> {/* Cool Auctions section */}
     </>
   );
 };

@@ -1,6 +1,7 @@
-//import mongoose
+//import necessary modules
 const fs = require("fs");
 const mongoose = require("mongoose");
+const path = require("path");
 
 //map global promise - get rid of warning
 mongoose.Promise = global.Promise;
@@ -177,6 +178,22 @@ const searchItems = async (req, res) => {
   }
 };
 
+// Get all data from dataSeed.json
+const getDataFromSeed = (req, res) => {
+  const filePath = path.join(__dirname, "..", "seed_data", "dataSeed.json");
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      return res.status(500).json({ message: err.message });
+    }
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseErr) {
+      res.status(500).json({ message: parseErr.message });
+    }
+  });
+};
+
 //display hello world to the api
 const helloWorld = (req, res) => {
   res.send("Hello World!");
@@ -191,4 +208,5 @@ module.exports = {
   listItems,
   searchItems,
   helloWorld,
+  getDataFromSeed,
 };
