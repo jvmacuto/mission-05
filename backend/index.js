@@ -25,6 +25,14 @@ mongoose
 //import model
 const Item = require("./model/auction");
 
+//Tajul's code
+// connect to watchlist database
+mongoose
+  .connect("mongodb://localhost:27017/watchlistdatabase")
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
+//Tajul's code ends here
+
 //start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
