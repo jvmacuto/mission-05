@@ -4,12 +4,13 @@ import "./CompareItemsModal.css";
 
 Modal.setAppElement("#root");
 
-const CompareItemsModal = ({ isOpen, onRequestClose, comparedItems }) => {
-  const handlePlaceBid = (item) => {
-    // Implement the logic to place a bid here
-    alert(`Bid placed on ${item.title}`);
-  };
-
+const CompareItemsModal = ({
+  isOpen,
+  onRequestClose,
+  comparedItems,
+  bids,
+  handlePlaceBid,
+}) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -29,7 +30,10 @@ const CompareItemsModal = ({ isOpen, onRequestClose, comparedItems }) => {
             <p>{item.description}</p>
             <p>Starting Price: ${item.starting_price}</p>
             <p>Reserve Price: ${item.reserve_price}</p>
-            <button onClick={() => handlePlaceBid(item)}>Place Bid</button>
+            <p>{bids[item.title] ? "Bid placed" : "No bid placed"}</p>
+            <button onClick={() => handlePlaceBid(item)}>
+              {bids[item.title] ? "Cancel Bid" : "Place Bid"}
+            </button>
           </div>
         ))}
       </div>
