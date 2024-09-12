@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css"; // Importing the main CSS for App
 
 // Importing components
-import Header from "./components/Header";
+import MainPage from "./components/MainPage"; // Keep MainPage
 import SearchBar from "./components/SearchBar"; // Import the SearchBar component
 import CategoryTabs from "./components/CategoryTabs";
 import Advertisement from "./components/Advertisement"; // Import the Advertisement component
@@ -39,17 +39,18 @@ function App() {
 
   return (
     <div className="App">
+      {/* Use MainPage component as the main layout */}
+      <MainPage />
+
+      {/* You can still use the other components below if MainPage doesn't handle them */}
       <Header /> {/* Header with navigation */}
-      <SearchBar />{" "}
-      {/* Main Search bar with "KIA ORA! READY TO FIND YOUR NEW?" */}
-      <CategoryTabs />{" "}
-      {/* Tabs for different categories like Marketplace, Jobs, etc. */}
+      <SearchBar /> {/* Main Search bar with "KIA ORA! READY TO FIND YOUR NEW?" */}
+      <CategoryTabs /> {/* Tabs for different categories like Marketplace, Jobs, etc. */}
       <Advertisement /> {/* Advertisement section */}
       <TopPicks />
       <FeaturedItems /> {/* Featured items section */}
       <MainContent /> {/* Main content with featured auctions */}
-      <TrendingCategories categories={trendingCategories} />{" "}
-      {/* Trending Categories section */}
+      <TrendingCategories categories={trendingCategories} /> {/* Trending Categories section */}
       <OneDollarReserve /> {/* $1 Reserve section */}
       <CoolAuctions /> {/* Cool Auctions section */}
       <Footer /> {/* Footer with site links and information */}
