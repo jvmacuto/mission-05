@@ -15,6 +15,20 @@ const topPicksItems = [
     closingDate: "Tue, 10 Sep",
     location: "Auckland, NZ",
     image: shelvingImage,
+    description:
+      "Steel shelf, 735mm x 900mm, Powder-coated Grey, 1.5mm thick, 3 shelves on each level.",
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Auckland City, Auckland",
+      shippingFee: "Free",
+    },
+    paymentOptions: ["Ping", "Cash", "NZ Bank Deposit"],
+    seller: {
+      name: "captainjake",
+      feedback: "100% positive feedback (81 stars)",
+      location: "Auckland City",
+      memberSince: "Sunday, 30 December 2007",
+    },
   },
   {
     id: 2,
@@ -90,9 +104,104 @@ const topPicksItems = [
   },
 ];
 
+// Modal component to display detailed information
+function ItemDetailsModal({ isOpen, onClose, item }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <button className="close-btn" onClick={onClose}>
+          &times;
+        </button>
+        <div className="modal-main">
+          {/* Left side: Image */}
+          <div className="modal-left">
+            <img src={item.image} alt={item.title} className="modal-image" />
+          </div>
+
+          {/* Right side: Details */}
+          <div className="modal-right">
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+
+            <h3>Details</h3>
+            <ul>
+              <li>Closing Date: {item.closingDate}</li>
+              <li>Location: {item.location}</li>
+            </ul>
+
+            <h3>Shipping & Pickup Options</h3>
+            <table className="shipping-table">
+              <tbody>
+                <tr>
+                  <td>Destination & Description</td>
+                  <td>{item.shippingOptions.destination}</td>
+                </tr>
+                <tr>
+                  <td>Pick-up</td>
+                  <td>{item.shippingOptions.pickup}</td>
+                </tr>
+                <tr>
+                  <td>Shipping Fee</td>
+                  <td>{item.shippingOptions.shippingFee}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>Payment Options</h3>
+            <ul>
+              {item.paymentOptions.map((option) => (
+                <li key={option}>{option}</li>
+              ))}
+            </ul>
+
+            <h3>About the Seller</h3>
+            <div className="seller-info">
+              <p>Seller: {item.seller.name}</p>
+              <p>Feedback: {item.seller.feedback}</p>
+              <p>Location: {item.seller.location}</p>
+              <p>Member Since: {item.seller.memberSince}</p>
+              <a href="#">View seller’s other listings</a>
+            </div>
+
+            <div className="buy-section">
+              <div className="buy-now-box">
+                <h3>Buy Now</h3>
+                <p className="price">{item.price}</p>
+                <p className="availability">10+ available</p>
+                <div className="buy-section-buttons">
+                  <button className="buy-btn">Buy Now</button>
+                  <button className="add-cart-btn">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function TopPicks() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 4;
+
+  // State for modal
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Handle modal open
+  const openModal = (item) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  // Handle modal close
+  const closeModal = () => {
+    setSelectedItem(null);
+    setIsModalOpen(false);
+  };
 
   const handleNext = () => {
     if (currentIndex < topPicksItems.length - itemsPerPage) {
@@ -121,7 +230,11 @@ function TopPicks() {
           {topPicksItems
             .slice(currentIndex, currentIndex + itemsPerPage)
             .map((item) => (
-              <div className="auction-item" key={item.id}>
+              <div
+                className="auction-item"
+                key={item.id}
+                onClick={() => openModal(item)}
+              >
                 <div className="auction-image-container">
                   <img src={item.image} alt={item.title} />
                 </div>
@@ -145,6 +258,13 @@ function TopPicks() {
           &#8250;
         </button>
       </div>
+
+      {/* Render the modal when an item is clicked */}
+      <ItemDetailsModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        item={selectedItem}
+      />
     </div>
   );
 }

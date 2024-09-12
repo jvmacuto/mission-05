@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css"; // Importing the main CSS for App
 
 // Importing components
@@ -37,6 +37,20 @@ function App() {
     // Add more categories as needed
   ];
 
+  // State to manage the selected item and modal display
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (item) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="App">
       <Header /> {/* Header with navigation */}
@@ -45,7 +59,7 @@ function App() {
       <CategoryTabs />{" "}
       {/* Tabs for different categories like Marketplace, Jobs, etc. */}
       <Advertisement /> {/* Advertisement section */}
-      <TopPicks />
+      <TopPicks openModal={openModal} /> {/* Passing the modal open function */}
       <FeaturedItems /> {/* Featured items section */}
       <MainContent /> {/* Main content with featured auctions */}
       <TrendingCategories categories={trendingCategories} />{" "}
@@ -53,6 +67,14 @@ function App() {
       <OneDollarReserve /> {/* $1 Reserve section */}
       <CoolAuctions /> {/* Cool Auctions section */}
       <Footer /> {/* Footer with site links and information */}
+      {/* Conditionally render the modal when an item is selected */}
+      {isModalOpen && selectedItem && (
+        <ItemDetailsModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          item={selectedItem}
+        />
+      )}
     </div>
   );
 }

@@ -1,0 +1,152 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Content Container */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Creates space between image and info */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; /* Adjusts spacing between sections */
+  margin-top: 1rem;
+}
+
+/* Left side (Image) styling */
+.modal-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image {
+  width: 100%;
+  max-width: 300px; /* Limits image width */
+  height: auto;
+}
+
+/* Right side (Details and Buy Now) styling */
+.modal-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Details Section */
+.item-details {
+  margin-bottom: 2rem;
+}
+
+/* Shipping Table */
+.shipping-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+.shipping-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* Seller Info Styling */
+.seller-info {
+  margin-top: 1rem;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.seller-info a {
+  color: #007bc1;
+  text-decoration: underline;
+}
+
+/* Buy Now Section Styling */
+.buy-section {
+  border: 1px solid #eaeaea;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bc1;
+  margin-bottom: 1rem;
+}
+
+.availability {
+  margin-bottom: 1rem;
+}
+
+.buy-section-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.buy-btn,
+.add-cart-btn {
+  background-color: #007bc1;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buy-btn:hover,
+.add-cart-btn:hover {
+  background-color: #005f8c;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .modal-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-left,
+  .modal-right {
+    max-width: 100%;
+  }
+
+  .modal-right {
+    padding-left: 0;
+  }
+}

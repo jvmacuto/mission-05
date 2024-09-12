@@ -84,3 +84,178 @@
   font-size: 1.2rem;
   color: #333;
 }
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Content Container */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal-main {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Left side (Image) styling */
+.modal-left {
+  flex: 1;
+  max-width: 45%; /* Adjust to control the image width */
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Right side (Details and Buy Now) styling */
+.modal-right {
+  flex: 2;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.shipping-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+.shipping-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* Seller Info Styling */
+.seller-info {
+  margin-top: 1rem;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+/* Buy Now and Bid Section Styling */
+.buy-section {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007bc1;
+}
+
+.availability {
+  margin-bottom: 1rem;
+}
+
+.buy-section-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.buy-btn,
+.add-cart-btn {
+  background-color: #007bc1;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buy-btn:hover,
+.add-cart-btn:hover {
+  background-color: #005f8c;
+}
+
+.bid-box {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.bid-input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bid-btn {
+  background-color: #007bc1;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bid-btn:hover {
+  background-color: #005f8c;
+}
+
+.watchlist-btn {
+  background-color: #f1c40f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.watchlist-btn:hover {
+  background-color: #d4ac0d;
+}
+
+/* Responsiveness for Modal */
+@media (max-width: 768px) {
+  .modal-main {
+    flex-direction: column;
+  }
+
+  .modal-left,
+  .modal-right {
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  .buy-section {
+    align-items: center;
+  }
+
+  .buy-section-buttons {
+    justify-content: center;
+  }
+}
