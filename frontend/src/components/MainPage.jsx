@@ -36,7 +36,6 @@ const MainPage = () => {
   ];
   return (
     <>
-      <Header /> {/* Header with navigation */}
       <SearchBar />{" "}
       {/* Main Search bar with "KIA ORA! READY TO FIND YOUR NEW?" */}
       <CategoryTabs />{" "}
@@ -49,7 +48,6 @@ const MainPage = () => {
       {/* Trending Categories section */}
       {/*<OneDollarReserve /> {/* $1 Reserve section */}
       {/*<CoolAuctions /> {/* Cool Auctions section */}
-      <Footer /> {/* Footer with site links and information */}
     </>
   );
 };

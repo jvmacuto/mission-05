@@ -14,5 +14,13 @@
     "reserve_price": 123,
     "_id": "66dec450470a0285c2235246",
     "__v": 0
+  },
+  {
+    "title": "cup",
+    "description": "this is a cup",
+    "starting_price": 45,
+    "reserve_price": 55,
+    "_id": "66e2290bf905eee2ea7f9f0b",
+    "__v": 0
   }
 ]
