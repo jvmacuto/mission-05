@@ -4,16 +4,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const itemsRouter = require("./routes/routes");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 //middleware
 app.use(bodyParser.json());
+app.use(cors()); // Enable CORS for all routes
 
 //use routes
 app.use("/api", itemsRouter);
-
 
 //map global promise - get rid of warning
 mongoose.Promise = global.Promise;

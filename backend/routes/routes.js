@@ -11,7 +11,8 @@ router.get("/items", controller.searchItems);
 //get all data from dataSeed.json
 router.get("/data", controller.getDataFromSeed);
 
-
+//John Vincent's routes
+router.post("/bid/:id", controller.placeBid);
 
 //get hello world from controller.js
 router.get("/hello", controller.helloWorld);

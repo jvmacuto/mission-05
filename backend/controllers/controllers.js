@@ -2,6 +2,7 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
 const path = require("path");
+const dataFilePath = path.join(__dirname, "../seed_data/dataSeed.json");
 
 //map global promise - get rid of warning
 mongoose.Promise = global.Promise;
@@ -196,7 +197,56 @@ const getDataFromSeed = (req, res) => {
 
 //Javan's code
 //your codes
-//end of your codes
+//end of Javan's codes
+
+//John Vincent's codes
+// Define the placeBid function
+const placeBid = (req, res) => {
+  const { id } = req.params;
+  const { bidAmount } = req.body;
+
+  fs.readFile(dataFilePath, "utf8", (err, data) => {
+    if (err) {
+      res.status(500).json({ message: "Error reading data file" });
+      return;
+    }
+
+    let items;
+    try {
+      items = JSON.parse(data);
+    } catch (parseErr) {
+      res.status(500).json({ message: parseErr.message });
+      return;
+    }
+
+    const item = items.find((item) => item._id === id);
+
+    if (!item) {
+      res.status(404).json({ message: "Item not found" });
+      return;
+    }
+
+    // Update the item's reserve price (if needed)
+    item.reserve_price = bidAmount;
+
+    // Send the response with the item's name and bid amount
+    res.json({
+      message: `Placing bid for item with ID ${id} and name ${item.title} for amount ${bidAmount}`,
+    });
+
+    // Uncomment the following code if you need to update the data file
+    /*
+    fs.writeFile(dataFilePath, JSON.stringify(items, null, 2), (err) => {
+      if (err) {
+        res.status(500).json({ message: "Error writing data file" });
+        return;
+      }
+      res.json(item);
+    });
+    */
+  });
+};
+//end of John Vincent's codes
 
 //display hello world to the api
 const helloWorld = (req, res) => {
@@ -213,4 +263,5 @@ module.exports = {
   searchItems,
   helloWorld,
   getDataFromSeed,
+  placeBid,
 };
