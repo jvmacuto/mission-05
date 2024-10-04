@@ -1,8 +1,8 @@
 import React from "react";
-import "./ItemDetailsModal.css"; // For styling the modal
+import "./ItemDetailsModal.css"; // Link to the updated CSS file
 
 function ItemDetailsModal({ item, isOpen, onClose }) {
-  if (!isOpen) return null; // If the modal is not open, return null
+  if (!isOpen) return null; // Don't render if the modal is not open
 
   return (
     <div className="modal-overlay">
@@ -11,14 +11,14 @@ function ItemDetailsModal({ item, isOpen, onClose }) {
           &times;
         </button>
         <div className="modal-main">
-          {/* Left side: image */}
+          {/* Left side: Image */}
           <div className="modal-left">
             <img src={item.image} alt={item.title} className="modal-image" />
           </div>
 
           {/* Right side: details and buy now section */}
           <div className="modal-right">
-            {/* Details Section */}
+            {/* Left side inside modal-right: Information */}
             <div className="item-details">
               <h2>{item.title}</h2>
               <p>{item.description}</p>
@@ -64,7 +64,7 @@ function ItemDetailsModal({ item, isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Buy Now Section */}
+            {/* Right side inside modal-right: Buy Now section */}
             <div className="buy-section">
               <h3>Buy Now</h3>
               <p className="price">{item.price}</p>

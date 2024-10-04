@@ -1,5 +1,4 @@
-/* Modal Overlay */
-.modal-overlay {
+Modal Overlay .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -17,13 +16,14 @@
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
-  max-width: 1000px;
+  max-width: 900px; /* Modal width */
   width: 100%;
-  position: relative;
   display: flex;
-  justify-content: space-between; /* Creates space between image and info */
+  justify-content: center; /* Centers the image and content horizontally */
+  align-items: center; /* Aligns the sections vertically */
 }
 
+/* Close Button */
 .close-btn {
   position: absolute;
   top: 10px;
@@ -34,36 +34,38 @@
   cursor: pointer;
 }
 
+/* Modal layout with image and content */
 .modal-main {
   display: flex;
   justify-content: space-between;
-  gap: 2rem; /* Adjusts spacing between sections */
-  margin-top: 1rem;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Left side (Image) styling */
+/* Left side: Image */
 .modal-left {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
+  max-width: 40%; /* Image width */
 }
 
 .modal-image {
   width: 100%;
-  max-width: 300px; /* Limits image width */
+  max-width: 300px; /* Limit the size of the image */
   height: auto;
 }
 
-/* Right side (Details and Buy Now) styling */
+/* Right side: Content and Buy Now Section */
 .modal-right {
-  flex: 2;
+  flex: 1.5; /* Take up remaining space */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Details Section */
+/* Information section on the left side of the modal-right */
 .item-details {
   margin-bottom: 2rem;
 }
@@ -86,7 +88,7 @@
   background: #f9f9f9;
   padding: 1rem;
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
 }
 
 .seller-info a {
@@ -94,7 +96,7 @@
   text-decoration: underline;
 }
 
-/* Buy Now Section Styling */
+/* Buy Now Section aligned right */
 .buy-section {
   border: 1px solid #eaeaea;
   padding: 1rem;
@@ -105,7 +107,7 @@
 .price {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #007bc1;
+  color: #27d410; /* Highlight the price */
   margin-bottom: 1rem;
 }
 
@@ -121,7 +123,7 @@
 
 .buy-btn,
 .add-cart-btn {
-  background-color: #007bc1;
+  background-color: #27d410;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -134,19 +136,24 @@
   background-color: #005f8c;
 }
 
-/* Responsive Layout */
+/* Responsive Layout for mobile view */
 @media (max-width: 768px) {
-  .modal-main {
+  .modal-content {
     flex-direction: column;
     align-items: center;
   }
 
   .modal-left,
   .modal-right {
+    width: 100%;
     max-width: 100%;
   }
 
-  .modal-right {
-    padding-left: 0;
+  .buy-section {
+    align-items: center;
+  }
+
+  .buy-section-buttons {
+    justify-content: center;
   }
 }

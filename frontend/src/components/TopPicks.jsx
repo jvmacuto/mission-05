@@ -15,8 +15,12 @@ const topPicksItems = [
     closingDate: "Tue, 10 Sep",
     location: "Auckland, NZ",
     image: shelvingImage,
-    description:
-      "Steel shelf, 735mm x 900mm, Powder-coated Grey, 1.5mm thick, 3 shelves on each level.",
+    description: [
+      "Steel shelf, 735mm x 900mm",
+      "Powder-coated Grey",
+      "1.5mm thick",
+      "3 shelves on each level",
+    ],
     shippingOptions: {
       destination: "To be arranged",
       pickup: "Pick-up available from Auckland City, Auckland",
@@ -37,6 +41,24 @@ const topPicksItems = [
     closingDate: "Wed, 11 Sep",
     location: "Wellington, NZ",
     image: palletrack,
+    description: [
+      "Durable steel racking system",
+      "Adjustable beams",
+      "Maximum load: 2000kg per level",
+      "Suitable for warehouses and industrial use",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Wellington, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Ping", "Credit Card", "NZ Bank Deposit"],
+    seller: {
+      name: "rackmaster",
+      feedback: "97% positive feedback (120 stars)",
+      location: "Wellington",
+      memberSince: "Monday, 1 April 2010",
+    },
   },
   {
     id: 3,
@@ -45,6 +67,24 @@ const topPicksItems = [
     closingDate: "Sat, 7 Sep",
     location: "Christchurch, NZ",
     image: heavyduty,
+    description: [
+      "Heavy-duty steel construction",
+      "600mm deep x 1800mm high",
+      "5 adjustable shelves",
+      "Weight capacity: 500kg per shelf",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Christchurch, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Cash", "NZ Bank Deposit"],
+    seller: {
+      name: "shelvemaster",
+      feedback: "94% positive feedback (75 stars)",
+      location: "Christchurch",
+      memberSince: "Wednesday, 15 May 2013",
+    },
   },
   {
     id: 4,
@@ -53,6 +93,24 @@ const topPicksItems = [
     closingDate: "Thu, 8 Sep",
     location: "Hamilton, NZ",
     image: customwood,
+    description: [
+      "Handcrafted wooden shelves",
+      "Made from sustainable pine wood",
+      "3-tier design with smooth finish",
+      "Dimensions: 900mm wide x 1500mm high",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Hamilton, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Cash", "NZ Bank Deposit", "PayPal"],
+    seller: {
+      name: "woodworks",
+      feedback: "98% positive feedback (45 stars)",
+      location: "Hamilton",
+      memberSince: "Saturday, 19 February 2011",
+    },
   },
   {
     id: 5,
@@ -61,6 +119,24 @@ const topPicksItems = [
     closingDate: "Thu, 15 Sep",
     location: "Dunedin, NZ",
     image: "path_to_image",
+    description: [
+      "Heavy-duty steel frame",
+      "Durable wooden work surface",
+      "Dimensions: 1200mm x 800mm",
+      "Max load capacity: 500kg",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Dunedin, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Ping", "NZ Bank Deposit", "Credit Card"],
+    seller: {
+      name: "benchboss",
+      feedback: "99% positive feedback (65 stars)",
+      location: "Dunedin",
+      memberSince: "Thursday, 20 September 2012",
+    },
   },
   {
     id: 6,
@@ -69,6 +145,24 @@ const topPicksItems = [
     closingDate: "Mon, 19 Sep",
     location: "Tauranga, NZ",
     image: "path_to_image",
+    description: [
+      "Steel construction",
+      "Lockable drawers",
+      "4 casters for mobility",
+      "Dimensions: 900mm x 600mm",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Tauranga, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Ping", "Cash", "NZ Bank Deposit"],
+    seller: {
+      name: "toolking",
+      feedback: "95% positive feedback (50 stars)",
+      location: "Tauranga",
+      memberSince: "Monday, 3 June 2013",
+    },
   },
   {
     id: 7,
@@ -77,6 +171,24 @@ const topPicksItems = [
     closingDate: "Fri, 20 Sep",
     location: "Napier, NZ",
     image: "path_to_image",
+    description: [
+      "Mobile tool cart with lockable compartments",
+      "Heavy-duty steel frame",
+      "Dimensions: 1200mm x 700mm",
+      "Weight capacity: 200kg",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Napier, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Ping", "Cash", "NZ Bank Deposit"],
+    seller: {
+      name: "cartmaster",
+      feedback: "96% positive feedback (85 stars)",
+      location: "Napier",
+      memberSince: "Wednesday, 7 July 2014",
+    },
   },
   {
     id: 8,
@@ -85,6 +197,24 @@ const topPicksItems = [
     closingDate: "Sun, 21 Sep",
     location: "Palmerston North, NZ",
     image: "path_to_image",
+    description: [
+      "Weather-resistant portable storage",
+      "Easy to assemble",
+      "Dimensions: 1500mm x 1000mm",
+      "Suitable for outdoor use",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Palmerston North, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Cash", "NZ Bank Deposit", "Credit Card"],
+    seller: {
+      name: "storagesolutions",
+      feedback: "93% positive feedback (60 stars)",
+      location: "Palmerston North",
+      memberSince: "Friday, 28 October 2015",
+    },
   },
   {
     id: 9,
@@ -93,6 +223,24 @@ const topPicksItems = [
     closingDate: "Mon, 22 Sep",
     location: "Rotorua, NZ",
     image: "path_to_image",
+    description: [
+      "Heavy-duty warehouse ladder",
+      "Anti-slip steps",
+      "Height: 3 meters",
+      "Foldable design for easy storage",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from Rotorua, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Ping", "Cash", "NZ Bank Deposit"],
+    seller: {
+      name: "ladderpro",
+      feedback: "92% positive feedback (40 stars)",
+      location: "Rotorua",
+      memberSince: "Tuesday, 17 March 2016",
+    },
   },
   {
     id: 10,
@@ -101,10 +249,28 @@ const topPicksItems = [
     closingDate: "Tue, 23 Sep",
     location: "New Plymouth, NZ",
     image: "path_to_image",
+    description: [
+      "Modular shelving rack system",
+      "Adjustable shelves",
+      "Weight capacity: 150kg per shelf",
+      "Dimensions: 1000mm x 2000mm",
+    ],
+    shippingOptions: {
+      destination: "To be arranged",
+      pickup: "Pick-up available from New Plymouth, NZ",
+      shippingFee: "Varies by location",
+    },
+    paymentOptions: ["Ping", "Credit Card", "NZ Bank Deposit"],
+    seller: {
+      name: "rackgenius",
+      feedback: "90% positive feedback (55 stars)",
+      location: "New Plymouth",
+      memberSince: "Monday, 10 May 2018",
+    },
   },
 ];
 
-// Modal component to display detailed information
+
 function ItemDetailsModal({ isOpen, onClose, item }) {
   if (!isOpen) return null;
 
@@ -115,47 +281,54 @@ function ItemDetailsModal({ isOpen, onClose, item }) {
           &times;
         </button>
         <div className="modal-main">
-          {/* Left side: Image */}
           <div className="modal-left">
             <img src={item.image} alt={item.title} className="modal-image" />
+            <div className="buy-section">
+              <h3>Buy Now</h3>
+              <p className="price">{item.price}</p>
+              <p className="availability">10+ available</p>
+              <div className="buy-section-buttons">
+                <button className="buy-btn">Buy Now</button>
+                <button className="add-cart-btn">Add to Cart</button>
+              </div>
+            </div>
           </div>
-
-          {/* Right side: Details */}
           <div className="modal-right">
             <h2>{item.title}</h2>
-            <p>{item.description}</p>
-
+            <h3>Description</h3>
+            <ul className="description-list">
+              {item.description.map((descItem, index) => (
+                <li key={index}>{descItem}</li>
+              ))}
+            </ul>
             <h3>Details</h3>
             <ul>
               <li>Closing Date: {item.closingDate}</li>
               <li>Location: {item.location}</li>
             </ul>
-
             <h3>Shipping & Pickup Options</h3>
             <table className="shipping-table">
               <tbody>
                 <tr>
-                  <td>Destination & Description</td>
+                  <th>Destination & Description</th>
                   <td>{item.shippingOptions.destination}</td>
                 </tr>
                 <tr>
-                  <td>Pick-up</td>
+                  <th>Pick-up</th>
                   <td>{item.shippingOptions.pickup}</td>
                 </tr>
                 <tr>
-                  <td>Shipping Fee</td>
+                  <th>Shipping Fee</th>
                   <td>{item.shippingOptions.shippingFee}</td>
                 </tr>
               </tbody>
             </table>
-
             <h3>Payment Options</h3>
             <ul>
               {item.paymentOptions.map((option) => (
                 <li key={option}>{option}</li>
               ))}
             </ul>
-
             <h3>About the Seller</h3>
             <div className="seller-info">
               <p>Seller: {item.seller.name}</p>
@@ -163,18 +336,6 @@ function ItemDetailsModal({ isOpen, onClose, item }) {
               <p>Location: {item.seller.location}</p>
               <p>Member Since: {item.seller.memberSince}</p>
               <a href="#">View seller’s other listings</a>
-            </div>
-
-            <div className="buy-section">
-              <div className="buy-now-box">
-                <h3>Buy Now</h3>
-                <p className="price">{item.price}</p>
-                <p className="availability">10+ available</p>
-                <div className="buy-section-buttons">
-                  <button className="buy-btn">Buy Now</button>
-                  <button className="add-cart-btn">Add to Cart</button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -187,17 +348,14 @@ function TopPicks() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 4;
 
-  // State for modal
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Handle modal open
   const openModal = (item) => {
     setSelectedItem(item);
     setIsModalOpen(true);
   };
 
-  // Handle modal close
   const closeModal = () => {
     setSelectedItem(null);
     setIsModalOpen(false);
@@ -259,7 +417,6 @@ function TopPicks() {
         </button>
       </div>
 
-      {/* Render the modal when an item is clicked */}
       <ItemDetailsModal
         isOpen={isModalOpen}
         onClose={closeModal}

@@ -1,90 +1,3 @@
-/* Individual auction items in Top Picks */
-.auction-item {
-  background-color: #fff;
-  border: 1px solid #eaeaea;
-  padding: 1rem;
-  border-radius: 8px;
-  width: 325px; /* Fixed width for each item */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-  position: relative; /* Allows for absolute positioning of price */
-}
-
-.auction-item:hover {
-  transform: scale(1.05);
-}
-
-/* Auction image container to ensure uniform size */
-.auction-image-container {
-  width: 100%; /* Match the width of the auction item */
-  height: 220px; /* Set a consistent height for the container */
-  overflow: hidden; /* Ensure the image doesn't overflow the container */
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-}
-
-.auction-item img {
-  max-width: 100%; /* Ensure the image scales to fit within the container */
-  max-height: 100%; /* Ensure the image scales within the height limit */
-  object-fit: cover; /* Maintain aspect ratio, fill the container while cropping excess */
-  border-radius: 8px;
-}
-
-/* Auction details text */
-.auction-details {
-  text-align: left;
-  margin-top: 1rem; /* Add some spacing between image and text */
-}
-
-/* Auction title */
-.auction-details h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-/* Auction details (closing date, location) */
-.auction-details p {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 0.25rem;
-}
-
-/* Auction price */
-.auction-details .price {
-  font-weight: bold;
-  position: absolute;
-  bottom: 10px; /* Positioned 10px from the bottom */
-  right: 10px; /* Positioned 10px from the right */
-  font-size: 1.2rem;
-  color: #333;
-}
-
-/* Price and Buy Now container */
-.price-container {
-  display: flex;
-  flex-direction: column; /* Stack Buy Now above the price */
-  align-items: flex-end; /* Align to the right */
-  position: absolute;
-  bottom: 1px; /* Positioned 10px from the bottom */
-  right: 10px; /* Positioned 10px from the right */
-}
-
-.buy-now {
-  font-size: 0.8rem; /* Slightly smaller than the price */
-  color: #666;
-  margin-bottom: 2.1rem; /* Adds a small space between Buy Now and price */
-  margin-right: 0.7rem;
-}
-
-.price {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #333;
-}
-
 /* Modal Overlay */
 .modal-overlay {
   position: fixed;
@@ -97,81 +10,131 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
+  padding: 1rem; /* Add padding to allow some space on smaller screens */
 }
 
 /* Modal Content Container */
 .modal-content {
   background-color: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 8px;
-  max-width: 900px;
+  max-width: 1000px; /* Modal width reduced */
   width: 100%;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Adjusted space between image and content */
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  max-height: 90vh; /* Ensure modal doesn't go off-screen */
 }
 
+/* Close Button */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 60px;
+  right: 490px;
   background: transparent;
   border: none;
   font-size: 2rem;
   cursor: pointer;
 }
 
+/* Image and content are split */
 .modal-main {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem; /* Reduced gap */
+  width: 100%;
+  flex-direction: row-reverse; /* This moves the image to the right */
 }
 
-/* Left side (Image) styling */
+/* Left side: Image */
 .modal-left {
   flex: 1;
-  max-width: 45%; /* Adjust to control the image width */
+  display: flex;
+  flex-direction: column; /* Ensures buy section is below the image */
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-image {
   width: 100%;
+  max-width: 550px;
   height: auto;
 }
 
-/* Right side (Details and Buy Now) styling */
+/* Right side: Information */
 .modal-right {
   flex: 2;
-  padding-left: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
 }
 
+/* Title Styling */
+.modal-right h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+/* Ensure all lists align to the left */
+.modal-right ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.modal-right li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+}
+
+/* Table Styling */
 .shipping-table {
   width: 100%;
-  margin-top: 1rem;
   border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.shipping-table th,
+.shipping-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.shipping-table th {
+  background-color: #f9f9f9;
+  font-weight: bold;
 }
 
 .shipping-table td {
-  padding: 0.5rem;
-  border-bottom: 1px solid #eaeaea;
+  background-color: #fff;
 }
 
 /* Seller Info Styling */
 .seller-info {
-  margin-top: 1rem;
   background: #f9f9f9;
   padding: 1rem;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 
-/* Buy Now and Bid Section Styling */
+/* Buy Now Section */
 .buy-section {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
+  border: 7px solid #eaeaea;
+  padding: 7rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 7.5rem;
 }
 
+/* Price and availability styling */
 .price {
-  font-size: 1.4rem;
+  font-size: 2.8rem;
   font-weight: bold;
   color: #007bc1;
 }
@@ -180,19 +143,24 @@
   margin-bottom: 1rem;
 }
 
+/* Buy Now buttons */
 .buy-section-buttons {
   display: flex;
+  flex-direction: column; /* Change to column to stack the buttons vertically */
+  justify-content: center;
   gap: 1rem;
 }
 
 .buy-btn,
 .add-cart-btn {
-  background-color: #007bc1;
+  background-color: #27d410;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 150px; /* Adjust the width to keep the buttons aligned */
+  text-align: center;
 }
 
 .buy-btn:hover,
@@ -200,46 +168,7 @@
   background-color: #005f8c;
 }
 
-.bid-box {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.bid-input {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.bid-btn {
-  background-color: #007bc1;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.bid-btn:hover {
-  background-color: #005f8c;
-}
-
-.watchlist-btn {
-  background-color: #f1c40f;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.watchlist-btn:hover {
-  background-color: #d4ac0d;
-}
-
-/* Responsiveness for Modal */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .modal-main {
     flex-direction: column;
@@ -247,8 +176,7 @@
 
   .modal-left,
   .modal-right {
-    max-width: 100%;
-    padding-left: 0;
+    width: 100%;
   }
 
   .buy-section {
