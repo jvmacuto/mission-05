@@ -1,31 +1,23 @@
-//import necessary modules
-const mongoose = require("mongoose");
 const express = require("express");
-const bodyParser = require("body-parser");
-const itemsRouter = require("./routes/routes");
+const mongoose = require("mongoose");
+const itemsRouter = require("./routes/routes"); // Ensure path to routes is correct
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3004;
 
-//middleware
-app.use(bodyParser.json());
+// Middleware to parse JSON requests
+app.use(express.json());
 
-//use routes
-app.use("/api", itemsRouter);
+// Use the routes defined in routes.js with '/api' prefix
+app.use("/api", itemsRouter); // Prefix all routes with /api
 
-//map global promise - get rid of warning
-mongoose.Promise = global.Promise;
-
-//connect to database
+// Connect to MongoDB
 mongoose
   .connect("mongodb://localhost:27017/auctiondatabase")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-//import model
-const Item = require("./model/auction");
-
-//start the server
+// Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
