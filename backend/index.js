@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const itemsRouter = require("./routes/routes"); // Ensure path to routes is correct
 
 const app = express();
-const port = process.env.PORT || 3004;
+const port = process.env.PORT || 3005;
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -13,9 +13,9 @@ app.use("/api", itemsRouter); // Prefix all routes with /api
 
 // Connect to MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/auctiondatabase")
+  .connect("mongodb://127.0.0.1:27017/auctiondatabase")
   .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 // Start the server
 app.listen(port, () => {
